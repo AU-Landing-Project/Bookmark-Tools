@@ -130,14 +130,14 @@ elgg.bookmark_tools.load_folder = function(folder_guid){
 		search_type = query_parts.search_viewtype;
 	}
 	
-	var url = elgg.get_site_url() + "bookmark_tools/list/" + elgg.get_page_owner_guid() + "?folder_guid=" + folder_guid + "&search_viewtype=" + search_type;
+	var url = elgg.get_site_url() + "bookmark_tools/list/" + elgg.get_page_owner_guid() + "?bmfolder_guid=" + folder_guid + "&search_viewtype=" + search_type;
 
 	$("#bookmark_tools_list_bookmarks_container .elgg-ajax-loader").show();
 	$("#bookmark_tools_list_bookmarks_container").load(url, function(){
 		var add_link = $('ul.elgg-menu-title li.elgg-menu-item-add a').attr("href");
 
 		var path = elgg.parse_url(add_link, "path");
-		var new_add_link = elgg.get_site_url() + path.substring(1) + "?folder_guid=" + folder_guid;
+		var new_add_link = elgg.get_site_url() + path.substring(1) + "?bmfolder_guid=" + folder_guid;
 		
 		$('ul.elgg-menu-title li.elgg-menu-item-add a').attr("href", new_add_link);
 	});
@@ -187,7 +187,7 @@ elgg.bookmark_tools.bulk_delete = function(e){
 		if(confirm(elgg.echo("deleteconfirm"))) {
 			var postData = $checkboxes.serializeJSON();
 
-			if($('#bookmark_tools_list_bookmarks input[type="checkbox"][name="folder_guids[]"]:checked').length && confirm(elgg.echo("bookmark_tools:folder:delete:confirm_bookmarks"))){
+			if($('#bookmark_tools_list_bookmarks input[type="checkbox"][name="bmfolder_guids[]"]:checked').length && confirm(elgg.echo("bookmark_tools:folder:delete:confirm_bookmarks"))){
 				postData.bookmarks = "yes";
 			}
 
@@ -211,7 +211,7 @@ elgg.bookmark_tools.new_folder = function(event){
 	event.preventDefault();
 
 	var hash = window.location.hash.substr(1);
-	var link = elgg.get_site_url() + "bookmark_tools/folder/new/" + elgg.get_page_owner_guid() + "?folder_guid=" + hash;
+	var link = elgg.get_site_url() + "bookmark_tools/folder/new/" + elgg.get_page_owner_guid() + "?bmfolder_guid=" + hash;
 	
 	$.fancybox({
 		href: link,

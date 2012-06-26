@@ -23,7 +23,7 @@
 	if(!elgg_in_context("widgets")){
 		$entity_menu = elgg_view_menu("entity", array(
 			"entity" => $folder,
-			"handler" => "bookmark_tools/folder",
+			"handler" => "bookmark_tools/bmfolder",
 			"sort_by" => "priority",
 			"class" => "elgg-menu-hz"
 		));
@@ -59,7 +59,7 @@
 		// summary view
 		$icon = elgg_view_entity_icon($folder, "tiny");
 		if(!elgg_in_context("widgets")){
-			$icon_alt = elgg_view("input/checkbox", array("name" => "folder_guids[]", "value" => $folder->getGUID(), "default" => false));
+			$icon_alt = elgg_view("input/checkbox", array("name" => "bmfolder_guids[]", "value" => $folder->getGUID(), "default" => false));
 		}
 		
 		$params = array(

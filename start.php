@@ -36,7 +36,7 @@
 		// make our own URLs for folder icons
 		elgg_register_plugin_hook_handler("entity:icon:url", "object", "bookmark_tools_folder_icon_hook");
 		
-		// register group option to allow management of file tree structure
+		// register group option to allow management of bookmark tree structure
 		add_group_tool_option("bookmark_tools_structure_management", elgg_echo("bookmark_tools:group_tool_option:structure_management"));
 		
 		// register events

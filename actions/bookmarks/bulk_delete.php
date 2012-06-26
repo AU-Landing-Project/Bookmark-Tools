@@ -1,7 +1,7 @@
 <?php
 
 	$bookmark_guids = get_input("bookmark_guids");
-	$folder_guids = get_input("folder_guids");
+	$folder_guids = get_input("bmfolder_guids");
 	
 	if(!empty($bookmark_guids) || !empty($folder_guids)){
 		// remove all bookmarks

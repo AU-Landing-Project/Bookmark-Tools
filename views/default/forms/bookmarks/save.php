@@ -44,7 +44,7 @@ if(bookmark_tools_use_folder_structure()){
 	<div>
 		<label><?php echo elgg_echo("bookmark_tools:forms:edit:parent"); ?><br />
 		<?php
-			echo elgg_view("input/folder_select", array("name" => "folder_guid", "value" => $parent_guid));		
+			echo elgg_view("input/bmfolder_select", array("name" => "bmfolder_guid", "value" => $parent_guid));		
 		?>
 		</label>
 	</div>

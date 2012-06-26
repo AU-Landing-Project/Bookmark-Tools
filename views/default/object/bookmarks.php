@@ -9,10 +9,10 @@
 	$bookmark = elgg_extract("entity", $vars, false);
 	$full_view = elgg_extract("full_view", $vars, false);
 
-	if(empty($file)){
+	if(!$bookmark){
 		return true;
 	}
-	
+
 	$bookmark_guid = $bookmark->getGUID();
 	$owner = $bookmark->getOwnerEntity();
 	
@@ -34,9 +34,9 @@
 	}
 	
 	if($time_preference == "date")	{
-		$date = date(elgg_echo("friendlytime:date_format"), $file->time_created);
+		$date = date(elgg_echo("friendlytime:date_format"), $bookmark->time_created);
 	} else {
-		$date = elgg_view_friendly_time($file->time_created);
+		$date = elgg_view_friendly_time($bookmark->time_created);
 	}
 	
 	// count comments
@@ -45,7 +45,7 @@
 	if($comment_count > 0){
 		$comments_link = elgg_view("output/url", array(
 			"href" => $bookmark->getURL() . "#bookmark-comments",
-			"text" => elgg_echo("comments") . " ($comments_count)",
+			"text" => elgg_echo("comments") . " ($comment_count)",
 			"is_trusted" => true,
 		));
 	}
@@ -61,7 +61,7 @@
 	$entity_menu = "";
 	if(!elgg_in_context("widgets")){
 		$entity_menu = elgg_view_menu("entity", array(
-			"entity" => $file,
+			"entity" => $bookmark,
 			"handler" => "bookmarks",
 			"sort_by" => "priority",
 			"class" => "elgg-menu-hz"
@@ -88,15 +88,15 @@
 		echo elgg_view("object/elements/full", array(
 				"entity" => $bookmark,
 				"title" => false,
-				"icon" => elgg_view_entity_icon($bookmark, "small"),
+				"icon" => elgg_view_entity_icon(get_entity($bookmark->owner_guid), "small"),
 				"summary" => $summary,
 				"body" => $body
 		));
 	} else {
-		// listing view of the file
+		// listing view of the bookmark
 		$bookmark_icon_alt = "";
 		if(bookmark_tools_use_folder_structure()){
-			$bookmark_icon = elgg_view_entity_icon($bookmark, "tiny", array("img_class" => "bookmark-tools-icon-tiny"));
+			$bookmark_icon = elgg_view_entity_icon(get_entity($bookmark->owner_guid), "tiny", array("img_class" => "bookmark-tools-icon-tiny"));
 			
 			if(elgg_in_context("bookmark_tools_selector")){
 				$bookmark_icon_alt = elgg_view("input/checkbox", array("name" => "bookmark_guids[]", "value" => $bookmark->getGUID(), "default" => false));
@@ -106,7 +106,7 @@
 			$subtitle = "";
 			$tags = "";
 		} else {
-			$file_icon = elgg_view_entity_icon($bookmark, "small");
+			$bookmark_icon = elgg_view_entity_icon(get_entity($bookmark->owner_guid), "small");
 			$excerpt = elgg_get_excerpt($bookmark->description);
 		}
 		
@@ -120,6 +120,6 @@
 		$params = $params + $vars;
 		$list_body = elgg_view("object/elements/summary", $params);
 		
-		echo elgg_view_image_block($bookmark_icon, $list_body, array("class" => "bookmark-tools-file", "image_alt" => $bookmark_icon_alt));
+		echo elgg_view_image_block($bookmark_icon, $list_body, array("class" => "bookmark-tools-bookmark", "image_alt" => $bookmark_icon_alt));
 	}
 	

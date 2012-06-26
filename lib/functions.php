@@ -7,7 +7,7 @@
 			"limit" => false,
 			//"container_guid" => get_loggedin_userid(),
 			"relationship" => BOOKMARK_TOOLS_RELATIONSHIP,
-			"relationship_guid" => $folder,
+			"relationship_guid" => $folder->guid,
 			"inverse_relationship" => false			
 		);
 		
@@ -81,7 +81,7 @@
 				 * children: potential children
 				 * 
 				 */
-				if($folder = elgg_extract("folder", $level)){
+				if($folder = elgg_extract("bmfolder", $level)){
 					$result[$folder->getGUID()] = str_repeat("-", $depth) . $folder->title;
 				}
 				
@@ -114,7 +114,7 @@
 				}
 				
 				$result[$order] = array(
-					"folder" => $subfolder,
+					"bmfolder" => $subfolder,
 					"children" => $children
 				);
 			}
@@ -168,7 +168,7 @@
 			$result = array();
 			
 			foreach($folders as $index => $level){
-				if($folder = elgg_extract("folder", $level)){
+				if($folder = elgg_extract("bmfolder", $level)){
 					$folder_menu = ElggMenuItem::factory(array(
 						"name" => "folder_" . $folder->getGUID(),
 						"text" => $folder->title,
@@ -195,7 +195,7 @@
 				// get children folders
 				$options = array(
 					"type" => "object",
-					"subtype" => FILE_TOOLS_SUBTYPE,
+					"subtype" => BOOKMARK_TOOLS_SUBTYPE,
 					"container_guid" => $folder->getContainerGUID(),
 					"limit" => false,
 					"metadata_name" => "parent_guid",

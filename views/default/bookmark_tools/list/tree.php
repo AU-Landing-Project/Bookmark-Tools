@@ -64,7 +64,7 @@
 		$("a[href*='bookmark_tools/bookmark/new']").live("click",function(e) {
 			var link = $(this).attr('href');
 		
-			window.location = link + '?folder_guid=' + bookmark_tools_get_selected_tree_folder_id();
+			window.location = link + '?bmfolder_guid=' + bookmark_tools_get_selected_tree_folder_id();
 			e.preventDefault();
 	        
 		});
@@ -77,7 +77,7 @@
 	
 		$('select[name="bookmark_sort"], select[name="bookmark_sort_direction"]').change(function() {
 			bookmark_tools_show_loader($("#bookmark_tools_list_folder"));
-			var folder_url = "<?php echo $vars["url"];?>bookmark_tools/list/<?php echo elgg_get_page_owner_guid();?>?folder_guid=" + bookmark_tools_get_selected_tree_folder_id() + "&search_viewtype=<?php echo get_input("search_viewtype", "list"); ?>&sort_by=" + $('select[name="bookmark_sort"]').val() + "&direction=" + $('select[name="bookmark_sort_direction"]').val();
+			var folder_url = "<?php echo $vars["url"];?>bookmark_tools/list/<?php echo elgg_get_page_owner_guid();?>?bmfolder_guid=" + bookmark_tools_get_selected_tree_folder_id() + "&search_viewtype=<?php echo get_input("search_viewtype", "list"); ?>&sort_by=" + $('select[name="bookmark_sort"]').val() + "&direction=" + $('select[name="bookmark_sort_direction"]').val();
 			$("#bookmark_tools_list_bookmarks_container").load(folder_url);
 		});
 	
