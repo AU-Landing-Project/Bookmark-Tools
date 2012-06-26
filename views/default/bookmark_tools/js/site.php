@@ -137,8 +137,8 @@ elgg.bookmark_tools.load_folder = function(folder_guid){
 		var add_link = $('ul.elgg-menu-title li.elgg-menu-item-add a').attr("href");
 
 		var path = elgg.parse_url(add_link, "path");
-		var new_add_link = elgg.get_site_url() + path.substring(1) + "?bmfolder_guid=" + folder_guid;
-		
+		var new_add_link = elgg.get_site_url() + 'bookmarks/add/' + elgg.get_page_owner_guid() + "?bmfolder_guid=" + folder_guid;
+
 		$('ul.elgg-menu-title li.elgg-menu-item-add a').attr("href", new_add_link);
 	});
 }
@@ -211,7 +211,7 @@ elgg.bookmark_tools.new_folder = function(event){
 	event.preventDefault();
 
 	var hash = window.location.hash.substr(1);
-	var link = elgg.get_site_url() + "bookmark_tools/folder/new/" + elgg.get_page_owner_guid() + "?bmfolder_guid=" + hash;
+	var link = elgg.get_site_url() + "bookmark_tools/bmfolder/new/" + elgg.get_page_owner_guid() + "?bmfolder_guid=" + hash;
 	
 	$.fancybox({
 		href: link,

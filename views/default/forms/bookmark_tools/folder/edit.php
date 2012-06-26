@@ -72,7 +72,7 @@
 	if(!empty($folder)) {
 		$form_data .= "<div id='bookmark_tools_edit_form_access_extra'>";
 		$form_data .= "<div>" . elgg_view("input/checkboxes", array("options" => array(elgg_echo("bookmark_tools:forms:edit:change_children_access") => "yes"), "value" => "yes", "name" => "change_children_access")) . "</div>";
-		$form_data .= "<div>" . elgg_view("input/checkboxes", array("options" => array(elgg_echo("bookmark_tools:forms:edit:change_files_access") => "yes"), "name" => "change_files_access")) . "</div>";
+		$form_data .= "<div>" . elgg_view("input/checkboxes", array("options" => array(elgg_echo("bookmark_tools:forms:edit:change_bookmarks_access") => "yes"), "name" => "change_files_access")) . "</div>";
 		$form_data .= "</div>";
 	}
 	

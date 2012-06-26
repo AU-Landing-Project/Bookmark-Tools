@@ -85,7 +85,7 @@
 			$folders = bookmark_tools_get_folders($page_owner_guid);
 
 			// build page elements
-			$title_text = elgg_echo("bookmark:user", array($page_owner->name));
+			$title_text = elgg_echo("bookmarks:owner", array($page_owner->name));
 			
 			$body = "<div id='bookmark_tools_list_bookmarks_container'>" . elgg_view("graphics/ajax_loader", array("hidden" => false)) . "</div>";
 			

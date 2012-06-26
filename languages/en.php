@@ -19,7 +19,7 @@
 		'bookmark_tools:menu:group' => "Group bookmark folders",
 		
 		// group tool option
-		'bookmark_tools:group_tool_option:structure_management' => "Allow management of folders by members",
+		'bookmark_tools:group_tool_option:structure_management' => "Allow management of bookmarks folders by members",
 		
 		// views
 	

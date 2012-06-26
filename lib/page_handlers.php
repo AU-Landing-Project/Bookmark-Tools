@@ -19,7 +19,7 @@
 					$include_file = dirname(dirname(__FILE__)) . "/pages/list.php";
 				}
 				break;
-			case "folder":
+			case "bmfolder":
 				if($page[1] == 'new') {
 					if(!empty($page[2])) {
 						elgg_set_page_owner_guid($page[2]);

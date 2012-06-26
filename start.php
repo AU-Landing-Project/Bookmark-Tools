@@ -57,7 +57,7 @@
 		// register actions
 		elgg_register_action("bookmark_tools/groups/save_sort", dirname(__FILE__) . "/actions/groups/save_sort.php");
 		elgg_register_action("bookmark_tools/folder/edit", dirname(__FILE__) . "/actions/folder/edit.php");
-		elgg_register_action("bookmark_tools/folder/delete", dirname(__FILE__) . "/actions/folder/delete.php");
+		elgg_register_action("bookmark_tools/bmfolder/delete", dirname(__FILE__) . "/actions/folder/delete.php");
 		elgg_register_action("bookmark_tools/folder/reorder", dirname(__FILE__) . "/actions/folder/reorder.php");
 		elgg_register_action("bookmark_tools/bookmarks/hide", dirname(__FILE__) . "/actions/bookmarks/hide.php");
 		
