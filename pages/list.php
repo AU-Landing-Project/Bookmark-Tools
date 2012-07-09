@@ -93,6 +93,7 @@
 			$sidebar = elgg_view("bookmark_tools/list/tree", array("bmfolder" => $folder, "bmfolders" => $folders));
 			$sidebar .= elgg_view("bookmark_tools/sidebar/sort_options");
 			$sidebar .= elgg_view("bookmark_tools/sidebar/info");
+      $sidebar .= elgg_view('page/elements/tagcloud_block', array('subtypes' => 'bookmarks', 'owner_guid' => elgg_get_page_owner_guid()));
 			
 			// build page params
 			$params = array(

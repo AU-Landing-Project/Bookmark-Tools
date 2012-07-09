@@ -1,6 +1,10 @@
 = Version History =
 x.x:
 
+1.1 ():
+
+ - adds tag cloud to owner sidebar
+
 
 1.0 (06/22/2012):
 
