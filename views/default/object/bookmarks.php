@@ -71,33 +71,39 @@
 		));
 	}
 
-	if($full_view && !elgg_in_context('gallery')) {
-		// normal full view
-    /*
-		$extra = "";
-		
-		$params = array(
-			"entity" => $bookmark,
-			"title" => $title,
-			"metadata" => $entity_menu,
-			"subtitle" => $subtitle,
-			"tags" => $tags
-		);
-		$params = $params + $vars;
-		$summary = elgg_view("object/elements/summary", $params);
-		
-		$text = elgg_view("output/longtext", array("value" => $bookmark->description));
-		$body = "$text $extra";
-		
-		echo elgg_view("object/elements/full", array(
-				"entity" => $bookmark,
-				"title" => false,
-				"icon" => elgg_view_entity_icon(get_entity($bookmark->owner_guid), "small"),
-				"summary" => $summary,
-				"body" => $body
-		));
-     * 
-     */
+	if($full_view) {
+	// add folder structure to the breadcrumbs
+  if(bookmark_tools_use_folder_structure()){
+    $endpoint = elgg_pop_breadcrumb();
+    $owner = elgg_pop_breadcrumb();
+    
+    $parent_folder = elgg_get_entities_from_relationship(array(
+       'relationship' => 'folder_of',
+        'relationship_guid' => $bookmark->guid,
+        'inverse_relationship' => TRUE
+    ));
+    
+    $folders = array();
+    if ($parent_folder) {
+    
+      $parent_guid = (int) $parent_folder[0]->guid;
+      
+				while(!empty($parent_guid) && ($parent = get_entity($parent_guid))){
+					$folders[] = $parent;
+					$parent_guid = (int) $parent->parent_guid;
+				}
+    }
+    
+    elgg_push_breadcrumb($owner['title'], $owner['link']);
+    elgg_push_breadcrumb(elgg_echo('bookmark_tools:list:folder:main'), $owner['link']);
+        
+    while($p = array_pop($folders)){
+      elgg_push_breadcrumb($p->title, $p->getURL());
+    }
+    
+    elgg_push_breadcrumb($endpoint['title'], $endpoint['link']);
+  }
+    
   $params = array(
 		'entity' => $bookmark,
 		'title' => false,
@@ -122,14 +128,7 @@ HTML;
 		'body' => $body,
 	));
   
-	} elseif (elgg_in_context('gallery')) {
-	echo <<<HTML
-<div class="bookmarks-gallery-item">
-	<h3>$bookmark->title</h3>
-	<p class='subtitle'>$owner_link $date</p>
-</div>
-HTML;
-} else {
+	} else {
 		// listing view of the bookmark
 	$url = $bookmark->address;
 	$display_text = $url;

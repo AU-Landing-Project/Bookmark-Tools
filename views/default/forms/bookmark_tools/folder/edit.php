@@ -53,7 +53,7 @@
 	$form_data .= "<div>";
 	$form_data .= "<label>" . elgg_echo("bookmark_tools:forms:edit:parent") . "</label>";
 	$form_data .= "<br />";
-	$form_data .= elgg_view("input/bmfolder_select", array("name" => "bookmark_tools_parent_guid", "bmfolder" => $folder->guid, "value" => $parent, "container_guid" => $page_owner->getGUID(), 'type' => 'bmfolder'));
+	$form_data .= elgg_view("input/bmfolder_select", array("name" => "parent_guid", "bmfolder" => $folder->guid, "value" => $parent, "container_guid" => $page_owner->getGUID(), 'type' => 'bmfolder'));
 	$form_data .= "</div>";
 	
 	// set context to influence access
