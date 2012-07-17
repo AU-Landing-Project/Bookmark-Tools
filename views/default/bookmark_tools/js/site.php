@@ -220,11 +220,13 @@ elgg.bookmark_tools.new_folder = function(event){
 
 	var hash = window.location.hash.substr(1);
 	var link = elgg.get_site_url() + "bookmark_tools/bmfolder/new/" + elgg.get_page_owner_guid() + "?bmfolder_guid=" + hash;
-	
+	window.location = link;
+  /*
 	$.fancybox({
 		href: link,
 		titleShow: false
 	});
+  */
 }
 
 elgg.bookmark_tools.init = function(){
