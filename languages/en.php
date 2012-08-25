@@ -117,7 +117,7 @@
 		
 		//settings
 		'bookmark_tools:settings:user_folder_structure' => 'Use folder structure',
-		'bookmark_tools:settings:sort:default' => 'Default folder sorting options',
+		'bookmark_tools:settings:sort:default' => 'Default bookmark folder sorting options',
 	
 		'bookmark:type:application' => 'Application',
 		'bookmark:type:text' => 'Text',
