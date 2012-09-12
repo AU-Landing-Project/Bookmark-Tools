@@ -98,11 +98,16 @@
 						include(dirname(dirname(__FILE__)) . "/pages/list.php");
 					}
 					break;
-/*				case "add":
-					$result = false;
-					
-					include(dirname(dirname(__FILE__)) . "/pages/file/new.php");
-					break; */
+  				case "add":
+					$user = get_user_by_username($page[1]);
+            
+          if ($user) {
+            $search = elgg_get_site_url() . 'bookmarks/add/' . $user->username;
+            $replace = elgg_get_site_url() . 'bookmarks/add/' . $user->guid;
+            $url = str_replace($search, $replace, current_page_url());
+            forward($url);
+          }
+					break;
 			}
 		}
 		
