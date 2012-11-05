@@ -87,13 +87,18 @@
 			// build page elements
 			$title_text = elgg_echo("bookmarks:owner", array($page_owner->name));
 			
-			$body = "<div id='bookmark_tools_list_bookmarks_container'>" . elgg_view("graphics/ajax_loader", array("hidden" => false)) . "</div>";
+			$body = elgg_view("bookmark_tools/list/bookmarks", array("bmfolder" => $folder, "bookmarks" => $bookmarks, 'sort_by' => $sort_by, 'direction' => $direction));
+			//$body = "<div id='bookmark_tools_list_bookmarks_container'>" . elgg_view("graphics/ajax_loader", array("hidden" => false)) . "</div>";
+			//$body = "<div id='bookmark_tools_list_bookmarks_container'>" . elgg_view("bookmark_tools/list/bookmarks", array("bmfolder" => $folder, "bookmarks" => $bookmarks, 'sort_by' => $sort_by, 'direction' => $direction)) . "</div>";
+			if (elgg_get_viewtype() == 'default') {
+			  $body = "<div id='bookmark_tools_list_bookmarks_container'>" . $body . "</div>";
+			}
 			
 			// make sidebar
 			$sidebar = elgg_view("bookmark_tools/list/tree", array("bmfolder" => $folder, "bmfolders" => $folders));
 			$sidebar .= elgg_view("bookmark_tools/sidebar/sort_options");
 			$sidebar .= elgg_view("bookmark_tools/sidebar/info");
-      $sidebar .= elgg_view('page/elements/tagcloud_block', array('subtypes' => 'bookmarks', 'owner_guid' => elgg_get_page_owner_guid()));
+			$sidebar .= elgg_view('page/elements/tagcloud_block', array('subtypes' => 'bookmarks', 'owner_guid' => elgg_get_page_owner_guid()));
 			
 			// build page params
 			$params = array(

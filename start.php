@@ -48,7 +48,7 @@
 		elgg_register_plugin_hook_handler("register", "menu:entity", "bookmark_tools_entity_menu_hook");
 		elgg_register_plugin_hook_handler("permissions_check:metadata", "object", "bookmark_tools_can_edit_metadata_hook");
 		elgg_register_plugin_hook_handler("route", "bookmarks", "bookmark_tools_bookmark_route_hook");
-    elgg_register_plugin_hook_handler("route", "bookmarks_tree", "bookmark_tools_forward_old_link");
+		elgg_register_plugin_hook_handler("route", "bookmarks_tree", "bookmark_tools_forward_old_link");
 		
 		elgg_register_plugin_hook_handler("register", "menu:bookmark_tools_folder_breadcrumb", "bookmark_tools_folder_breadcrumb_hook");
 		elgg_register_plugin_hook_handler("register", "menu:bookmark_tools_folder_sidebar_tree", "bookmark_tools_folder_sidebar_tree_hook");
