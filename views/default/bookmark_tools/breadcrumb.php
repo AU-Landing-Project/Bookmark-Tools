@@ -1,5 +1,8 @@
 <?php 
 
+if (elgg_get_context() != 'bookmarks') {
+  return true;
+}
 	$folder = elgg_extract("entity", $vars);
 	
 	echo "<div id='bookmark_tools_breadcrumbs' class='clearfix'>";	

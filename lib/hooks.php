@@ -165,7 +165,7 @@
 			
 			$result[] = ElggMenuItem::factory($main_folder_options);
 		}
-		
+
 		return $result;
 	}
 	
