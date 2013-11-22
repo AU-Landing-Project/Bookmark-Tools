@@ -145,6 +145,12 @@
 		
 		// index_bookmark
 		'widgets:index_bookmark:description' => "Show the latest bookmarks on your community",
+		"widgets:bookmark_foldes:edit:select" => 'Select which bookmark folder(s) to display',
+		"widgets:bookmark_folders:edit:show_content" => 'Show the content of the folder(s)',
+		"widgets:bookmark_tools:no_folders" => "No folders to display",
+		"widgets:bookmark_tools:more" => "More bookmarks",
+		"widgets:bookmark_folders:title" => "Bookmark Folders",
+		"widgets:bookmark_folders:description" => "Display bookmarks organized in specific folders"
 	
 	);
 	
