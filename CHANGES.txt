@@ -1,8 +1,8 @@
 = Version History =
 x.x:
 
-1.1 ():
-
+1.1 (11/22/2013):
+ - adds bookmark folder widget
  - adds tag cloud to owner sidebar
  - adds dynamic rss link
  - adds rss view for bookmark folders
