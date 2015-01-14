@@ -31,7 +31,7 @@
 		elgg_register_page_handler("bookmark_tools", "bookmark_tools_page_handler");
 		
 		// make our own URLs for folders
-		elgg_register_entity_url_handler("object", BOOKMARK_TOOLS_SUBTYPE, "bookmark_tools_folder_url_handler");
+		elgg_register_entity_url_handler('entity:url', 'object', 'bookmark_tools_folder_url_handler');
 		
 		// make our own URLs for folder icons
 		elgg_register_plugin_hook_handler("entity:icon:url", "object", "bookmark_tools_folder_icon_hook");
