@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin_manifest xmlns="http://www.elgg.org/plugin_manifest/1.8">
 	<name>Bookmark Tools</name>
-	<author>Matt Beckett, ColdTrick IT Solutions</author>
+	<author>Matt Beckett, ColdTrick IT Solutions, Taner Temel</author>
 	<version>1.1</version>
-	<description>Extend the functionality of bookmarks</description>
+	<description>Extended bookmarks functionality</description>
 	<website>https://landing.athabascau.ca</website>
 	<copyright>(C) Athabascau University</copyright>
 	<license>GNU Public License version 2</license>
 	
 	<requires>
 		<type>elgg_release</type>
-		<version>1.8.3</version>
+		<version>1.9</version>
 	</requires>
 	
 	<requires>
