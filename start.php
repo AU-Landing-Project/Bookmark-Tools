@@ -63,8 +63,9 @@
 		elgg_register_action("bookmark/move", dirname(__FILE__) . "/actions/bookmarks/move.php");
 		elgg_register_action("bookmark/bulk_delete", dirname(__FILE__) . "/actions/bookmarks/bulk_delete.php");
 		
-		elgg_register_widget_type ("bookmark_folders", elgg_echo("widgets:bookmark_folders:title"), elgg_echo("widgets:bookmark_folders:description"), "dashboard,profile,groups");
-		
+		elgg_register_widget_type('bookmark_folders', elgg_echo('widgets:bookmark_folders:title'), elgg_echo('widgets:bookmark_folders:description'), array('dashboard,profile,groups'));
+
+
 	}
   
 
