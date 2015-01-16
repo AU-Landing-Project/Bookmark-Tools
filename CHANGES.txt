@@ -1,6 +1,9 @@
 = Version History =
 x.x:
 
+1.1.1 (01/14/2015)
+- updated for use with elgg 1.9
+
 1.1 (11/22/2013):
  - adds bookmark folder widget
  - adds tag cloud to owner sidebar
