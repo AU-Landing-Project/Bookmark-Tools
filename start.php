@@ -15,7 +15,13 @@
 		if(bookmark_tools_use_folder_structure()){
 			elgg_extend_view("groups/edit", "bookmark_tools/group_settings");
 		}
-		
+		     elgg_register_menu_item('site', array(
+                'name' => 'bookmark_tools',
+                'text' => 'Bookmarks',
+                'href' => 'bookmarks/owner/' . elgg_get_logged_in_user_entity()->username,
+
+    ));
+		elgg_unregister_menu_item('site', 'bookmarks'); 	
 		// extend js
 		elgg_extend_view("js/elgg", "bookmark_tools/js/site");
 		
@@ -63,8 +69,9 @@
 		elgg_register_action("bookmark/move", dirname(__FILE__) . "/actions/bookmarks/move.php");
 		elgg_register_action("bookmark/bulk_delete", dirname(__FILE__) . "/actions/bookmarks/bulk_delete.php");
 		
-		elgg_register_widget_type ("bookmark_folders", elgg_echo("widgets:bookmark_folders:title"), elgg_echo("widgets:bookmark_folders:description"), "dashboard,profile,groups");
-		
+		//elgg_register_widget_type('bookmark_folders', elgg_echo('widgets:bookmark_folders:title'), elgg_echo('widgets:bookmark_folders:description'), array('dashboard,profile,groups'));
+
+
 	}
   
 

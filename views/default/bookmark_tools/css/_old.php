@@ -1,6 +1,6 @@
 <?php
 
-$graphics_folder = $vars['url'] . 'mod/bookmark_tools/_graphics/';
+$graphics_folder = elgg_get_site_url() . 'mod/bookmark_tools/_graphics/';
 
 ?>
 
@@ -63,7 +63,7 @@ $graphics_folder = $vars['url'] . 'mod/bookmark_tools/_graphics/';
 }
 
 #bookmark_tools_list_tree_info > div {
-	background: url(<?php echo $vars["url"]; ?>_graphics/icon_customise_info.gif) top left no-repeat;
+	background: url(<?php echo elgg_get_site_url(); ?>_graphics/icon_customise_info.gif) top left no-repeat;
 	padding-left: 16px; 
 	color: #333333;
 	font-weight: bold;
@@ -84,7 +84,7 @@ $graphics_folder = $vars['url'] . 'mod/bookmark_tools/_graphics/';
 	opacity: 0.6;
 	filter: alpha(opacity=60);
 	z-index: 100;
-	background: url("<?php echo $vars["url"]; ?>_graphics/ajax_loader.gif") no-repeat scroll center center white;
+	background: url("<?php echo elgg_get_site_url(); ?>_graphics/ajax_loader.gif") no-repeat scroll center center white;
 	padding: auto;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -117,7 +117,7 @@ $graphics_folder = $vars['url'] . 'mod/bookmark_tools/_graphics/';
 #bookmark_tools_breadcrumbs li a {
 	display:block;
 	padding:0 15px 0 0;
-	background:url(<?php echo $vars["url"]; ?>mod/bookmark_tools/_graphics/crumbs.gif) no-repeat right center;
+	background:url(<?php echo elgg_get_site_url(); ?>mod/bookmark_tools/_graphics/crumbs.gif) no-repeat right center;
 }
 
 #bookmark_tools_breadcrumbs li a:link, 
@@ -304,7 +304,7 @@ a.progressCancel {
 	display: block;
 	height: 14px;
 	width: 14px;
-	background-image: url(<?php echo $vars["url"]; ?>mod/bookmark_tools/_graphics/swfupload/cancelbutton.gif);
+	background-image: url(<?php echo elgg_get_site_url(); ?>mod/bookmark_tools/_graphics/swfupload/cancelbutton.gif);
 	background-repeat: no-repeat;
 	background-position: -14px 0px;
 	float: right;
