@@ -19,13 +19,13 @@
 					$folders .= elgg_view_entity($folder, array("full_view" => false));
 					
 					// list the content
-					if(!($sub_folders = file_tools_get_sub_folders($folder))){
+					if(!($sub_folders = bookmark_tools_get_sub_folders($folder))){
 						$sub_folders = array();
 					}
 					
 					$files_options = array(
 						"type" => "object",
-						"subtype" => "file",
+						"subtype" => "bookmarks",
 						"limit" => false,
 						"container_guid" => $widget->getOwnerGUID(),
 						"relationship" => BOOKMARK_TOOLS_RELATIONSHIP,

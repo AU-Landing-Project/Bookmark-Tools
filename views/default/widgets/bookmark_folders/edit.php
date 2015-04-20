@@ -14,7 +14,7 @@
 		echo elgg_echo("widgets:bookmark_foldes:edit:select");
 		echo "<div>";
 		echo elgg_view("input/hidden", array("name" => "params[folder_guids][]", "value" => "")); // needed to be able to empty the list
-		echo file_tools_build_widget_options($folders, "params[folder_guids][]", $selected_folders);
+		echo bookmark_tools_build_widget_options($folders, "params[folder_guids][]", $selected_folders);
 		echo "</div>";
 		
 		// display folder or folder content

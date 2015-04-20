@@ -298,3 +298,31 @@
 		return $result;
 	}
 		
+	function bookmark_tools_build_widget_options($folder, $internalname = "", $selected = array()) {
+		$result = "";
+		
+		if(is_array($folder) && !array_key_exists("children", $folder)) {
+			foreach($folder as $folder_item) {
+				$result .= "<ul>";
+				$result .= bookmark_tools_build_widget_options($folder_item, $internalname, $selected);
+				$result .= "</ul>";
+			}
+		} else {
+			$folder_item = $folder["bmfolder"];
+			
+			$result .= "<li>";
+
+			if(in_array($folder_item->getGUID(), $selected)) {
+				$result .= "<input type='checkbox' name='" . $internalname . "' value='" . $folder_item->getGUID() . "' checked='checked'> " .  $folder_item->title;
+			} else {
+				$result .= "<input type='checkbox' name='" . $internalname . "' value='" . $folder_item->getGUID() . "'> " .  $folder_item->title;
+			}
+			
+			if(!empty($folder["children"])) {
+				$result .= bookmark_tools_build_widget_options($folder["children"], $internalname, $selected);
+			}
+			$result .= "</li>";
+		}
+		
+		return $result;
+	}			
