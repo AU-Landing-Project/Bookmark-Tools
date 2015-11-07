@@ -1,6 +1,9 @@
 <?php
 
 	$bookmarks = elgg_extract("bookmarks", $vars, array());
+    if (!$bookmarks) {
+        $bookmarks = array();
+    }
 	$folder = elgg_extract("bmfolder", $vars);
 	
 	$folder_content = elgg_view("bookmark_tools/breadcrumb", array("entity" => $folder));	
