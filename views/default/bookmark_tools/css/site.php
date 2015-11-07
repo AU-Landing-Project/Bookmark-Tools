@@ -1,6 +1,4 @@
-<?php
 
-?>
 .bookmark-tools-icon-tiny {
 	width: 20px;
 	height: 20px;

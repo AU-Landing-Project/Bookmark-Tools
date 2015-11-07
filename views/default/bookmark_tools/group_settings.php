@@ -39,7 +39,7 @@
 		$form_body .= "</div>";
 		
 		$title = elgg_echo("bookmark_tools:settings:sort:default");
-		$body = elgg_view("input/form", array("action" => $vars["url"] . "action/bookmark_tools/groups/save_sort", "body" => $form_body));
+		$body = elgg_view("input/form", array("action" => elgg_get_site_url() . "action/bookmark_tools/groups/save_sort", "body" => $form_body));
 		
 		echo elgg_view_module("info", $title, $body);
 	}

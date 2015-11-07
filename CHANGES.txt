@@ -1,6 +1,9 @@
 = Version History =
 x.x:
 
+2.0.0 ():
+ - Elgg 1.9 upgrade
+
 1.2 (2015/04/20)
  - fixes broken bookmark folders widget
 

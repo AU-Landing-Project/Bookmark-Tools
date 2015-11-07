@@ -1,6 +1,6 @@
 <?php 
 
-if (elgg_get_context() != 'bookmarks') {
+if (!in_array(elgg_get_context(), array('bookmarks', 'bookmark_tools'))) {
   return true;
 }
 	$folder = elgg_extract("entity", $vars);
