@@ -31,7 +31,7 @@ function bookmark_tools_init() {
     elgg_register_page_handler("bookmark_tools", "bookmark_tools_page_handler");
 
     // make our own URLs for folders
-    elgg_register_entity_url_handler("object", BOOKMARK_TOOLS_SUBTYPE, "bookmark_tools_folder_url_handler");
+	elgg_register_plugin_hook_handler('entity:url', 'object', 'bookmark_tools_folder_url');
 
     // make our own URLs for folder icons
     elgg_register_plugin_hook_handler("entity:icon:url", "object", "bookmark_tools_folder_icon_hook");
@@ -70,8 +70,13 @@ function bookmark_tools_init() {
     ));
 }
 
-function bookmark_tools_folder_url_handler($entity) {
-    $container = $entity->getContainerEntity();
+function bookmark_tools_folder_url($hook, $type, $return, $params) {
+	$entity = $params['entity'];
+	if ($entity->getSubtype() != BOOKMARK_TOOLS_SUBTYPE) {
+		return $return;
+	}
+	
+	$container = $entity->getContainerEntity();
 
     if (elgg_instanceof($container, "group")) {
         $result = "bookmarks/group/" . $container->getGUID() . "/all#" . $entity->getGUID();
